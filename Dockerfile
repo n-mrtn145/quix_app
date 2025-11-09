@@ -1,5 +1,5 @@
 # Dockerfile
-FROM openjdk:21-jdk-slim
+FROM openjdk:21-jdk-slim-bullseye
 
 WORKDIR /app
 

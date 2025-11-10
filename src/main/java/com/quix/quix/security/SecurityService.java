@@ -27,4 +27,28 @@ public class SecurityService {
 
         return repository.save(user); // save() erledigt INSERT automatisch
     }
+
+    public boolean userExists(String username) {
+        return repository.existsByUsername(username);
+    }
+    public boolean userExists(UUID uuid) {
+        return repository.existsById(uuid);
+    }
+
+    private void addFriend(UUID userId, UUID friendId) {
+        UserEntity user = repository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // Freund hinzufügen, falls noch nicht drin
+        if (!user.getFriends().contains(friendId)) {
+            user.getFriends().add(friendId);
+        }
+
+        repository.save(user); // speichert die Änderungen
+    }
+
+    public void addFriends(UUID friend1, UUID friend2) {
+        addFriend(friend1, friend2);
+        addFriend(friend2, friend1);
+    }
 }

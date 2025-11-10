@@ -25,7 +25,7 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Gradle
-        run: ./gradlew clean build
+        run: ./gradlew clean build  -D spring.profiles.active=prod
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4

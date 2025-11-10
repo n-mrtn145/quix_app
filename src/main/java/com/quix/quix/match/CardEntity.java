@@ -38,5 +38,5 @@ public class CardEntity {
     private EntryEntity entry;
 
     @Version
-    private Long version;
+    private Long version = 0L;
 }

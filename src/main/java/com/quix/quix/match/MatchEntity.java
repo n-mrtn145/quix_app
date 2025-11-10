@@ -46,5 +46,5 @@ public class MatchEntity {
     private LocalDateTime timestamp;
 
     @Version
-    private Long version;
+    private Long version = 0L;
 }

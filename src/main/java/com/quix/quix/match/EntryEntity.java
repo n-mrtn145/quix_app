@@ -21,20 +21,28 @@ public class EntryEntity {
     private UUID id;
 
     @ElementCollection
+    @CollectionTable(name = "entry_red", joinColumns = @JoinColumn(name = "entry_id"))
+    @Column(name = "value")
     private List<Integer> red;
 
     @ElementCollection
+    @CollectionTable(name = "entry_yellow", joinColumns = @JoinColumn(name = "entry_id"))
+    @Column(name = "value")
     private List<Integer> yellow;
 
     @ElementCollection
+    @CollectionTable(name = "entry_green", joinColumns = @JoinColumn(name = "entry_id"))
+    @Column(name = "value")
     private List<Integer> green;
 
     @ElementCollection
+    @CollectionTable(name = "entry_blue", joinColumns = @JoinColumn(name = "entry_id"))
+    @Column(name = "value")
     private List<Integer> blue;
 
     private Integer wrongTrow;
 
     @Version
-    private Long version;
+    private Long version = 0L;
 }
 

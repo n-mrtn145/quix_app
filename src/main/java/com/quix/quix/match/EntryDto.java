@@ -1,40 +1,26 @@
 package com.quix.quix.match;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
-public class EntryEntity {
+public class EntryDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
-
-    @ElementCollection
     private List<Integer> red;
 
-    @ElementCollection
     private List<Integer> yellow;
 
-    @ElementCollection
     private List<Integer> green;
 
-    @ElementCollection
     private List<Integer> blue;
 
     private Integer wrongTrow;
 
-    @Version
-    private Long version;
 }
-

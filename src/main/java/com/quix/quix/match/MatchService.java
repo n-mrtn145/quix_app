@@ -36,7 +36,7 @@ public class MatchService {
             entry.setYellow(List.of());
             entry.setGreen(List.of());
             entry.setBlue(List.of());
-            entry.setWrongTrow(0);
+            entry.setWrongThrow(0);
 
             CardEntity card = new CardEntity();
             card.setUser(player);

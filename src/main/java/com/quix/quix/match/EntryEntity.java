@@ -40,7 +40,7 @@ public class EntryEntity {
     @Column(name = "value")
     private List<Integer> blue;
 
-    private Integer wrongTrow;
+    private Integer wrongThrow;
 
     @Version
     private Long version = 0L;

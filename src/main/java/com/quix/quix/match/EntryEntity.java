@@ -1,7 +1,6 @@
 package com.quix.quix.match;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,8 +17,27 @@ import java.util.UUID;
 public class EntryEntity {
     @Id
     private UUID id;
+
+    @ElementCollection
+    @CollectionTable(name = "entry_red", joinColumns = @JoinColumn(name = "entry_id"))
+    @Column(name = "value")
     private List<Integer> red;
+
+    @ElementCollection
+    @CollectionTable(name = "entry_yellow", joinColumns = @JoinColumn(name = "entry_id"))
+    @Column(name = "value")
     private List<Integer> yellow;
+
+    @ElementCollection
+    @CollectionTable(name = "entry_green", joinColumns = @JoinColumn(name = "entry_id"))
+    @Column(name = "value")
     private List<Integer> green;
+
+    @ElementCollection
+    @CollectionTable(name = "entry_blue", joinColumns = @JoinColumn(name = "entry_id"))
+    @Column(name = "value")
     private List<Integer> blue;
+
+    private int wrongThrow;
 }
+

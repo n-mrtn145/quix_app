@@ -1,7 +1,6 @@
 package com.quix.quix.match;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.quix.quix.security.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +17,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
+@Table(name = "matches")
 public class MatchEntity {
 
     @Id
@@ -25,17 +25,11 @@ public class MatchEntity {
     private UUID id;
 
     // 🔹 Match hat mehrere Spieler
-    @ManyToMany
-    @JoinTable(
-            name = "match_players",
-            joinColumns = @JoinColumn(name = "match_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"),
-            foreignKey = @ForeignKey(name = "fk_match_player_match"),
-            inverseForeignKey = @ForeignKey(name = "fk_match_player_user")
-    )
-    private List<UserEntity> players = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "match_id") // FK in MatchPlayer
+    private List<MatchPlayer> players = new ArrayList<>();
 
-    // 🔹 Match hat mehrere Karten
+    // 🔹 Match hat mehrere Karten (bleibt wie gehabt)
     @OneToMany(mappedBy = "match", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<CardEntity> cards = new ArrayList<>();

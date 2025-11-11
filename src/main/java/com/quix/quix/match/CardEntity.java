@@ -1,7 +1,6 @@
 package com.quix.quix.match;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.quix.quix.security.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,10 +26,7 @@ public class CardEntity {
     @JsonBackReference
     private MatchEntity match;
 
-    // 🔹 Eine Karte gehört zu einem User
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_card_user"))
-    private UserEntity user;
+    private UUID userId;
 
     // 🔹 Eine Karte hat genau ein Entry (1:1 Beziehung)
     @OneToOne(optional = false, cascade = CascadeType.ALL)

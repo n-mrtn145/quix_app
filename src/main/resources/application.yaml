@@ -1,4 +1,7 @@
 spring:
+  datasource:
+    url: https://ngoyyelbscqienoxbuuf.supabase.co
+    username: postgres
   application:
     name: quix
   jpa:
@@ -8,3 +11,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+supabase:
+  url: https://ngoyyelbscqienoxbuuf.supabase.co
+  service-role-key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nb3l5ZWxic2NxaWVub3hidXVmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MjgwOTE2OCwiZXhwIjoyMDc4Mzg1MTY4fQ.QCEsGeuvYRT7FxS-ukrzT52EGlzrsqtzTv4Auv6JTv8
+  jwt-secret: ebaKHFVNiamrutuRQ7wUwnAcE/5VACKQeeMlgm889K/8SHCh+AVW0PKGrONfwuUqKH1pez3umTwU6/B5icYv4A==
+

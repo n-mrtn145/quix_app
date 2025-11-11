@@ -35,6 +35,14 @@ public class SecurityService {
         return repository.existsById(uuid);
     }
 
+    public UserEntity getUserById(UUID uuid) {
+        if (!repository.existsById(uuid)) {
+            return null;
+        } else {
+            return repository.findById(uuid).get();
+        }
+    }
+
     private void addFriend(UUID userId, UUID friendId) {
         UserEntity user = repository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));

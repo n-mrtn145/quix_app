@@ -15,7 +15,9 @@ import java.util.UUID;
 @Setter
 @Entity
 public class EntryEntity {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @ElementCollection
@@ -38,6 +40,9 @@ public class EntryEntity {
     @Column(name = "value")
     private List<Integer> blue;
 
-    private int wrongThrow;
+    private Integer wrongTrow;
+
+    @Version
+    private Long version = 0L;
 }
 

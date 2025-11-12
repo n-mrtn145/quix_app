@@ -10,7 +10,7 @@ spring:
         format_sql: true
 supabase:
   username: postgres
-  url: https://ngoyyelbscqienoxbuuf.supabase.co
-  service-role-key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nb3l5ZWxic2NxaWVub3hidXVmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MjgwOTE2OCwiZXhwIjoyMDc4Mzg1MTY4fQ.QCEsGeuvYRT7FxS-ukrzT52EGlzrsqtzTv4Auv6JTv8
-  jwt-secret: ebaKHFVNiamrutuRQ7wUwnAcE/5VACKQeeMlgm889K/8SHCh+AVW0PKGrONfwuUqKH1pez3umTwU6/B5icYv4A==
+  url: https://jscsxnjpkpsbvtdxihyn.supabase.co
+  service-role-key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpzY3N4bmpwa3BzYnZ0ZHhpaHluIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MjkyNzY5NiwiZXhwIjoyMDc4NTAzNjk2fQ.ikBMwRVWt2JRNp-75adq8fCE9WfXSi-56W8A61NuG-o
+  jwt-secret: Oy/DpzRuzKNd6h1wvZbUCPU8owaLOyccjRQIEbMdhM7ukEycgt0C56bDC2nskGdyXidYKwqOLWXsoTx0V62fVw==
 

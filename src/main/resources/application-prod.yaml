@@ -1,9 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://db.ngoyyelbscqienoxbuuf.supabase.co:5432/postgres
-    username: postgres
-    password: JumQVikIDRf8qB1d
+    url: jdbc:postgresql://aws-1-eu-north-1.pooler.supabase.com:5432/postgres?user=postgres.jscsxnjpkpsbvtdxihyn&password=Johannes8,12!20
+    username: postgres.jscsxnjpkpsbvtdxihyn
+    password: Johannes8,12!20
     driver-class-name: org.postgresql.Driver
+
   jpa:
     hibernate:
       ddl-auto: update  # erzeugt Tabellen automatisch, kann bei produktiv auch "validate" sein

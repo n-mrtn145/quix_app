@@ -8,6 +8,10 @@ spring:
       maximum-pool-size: 3
   jpa:
     hibernate:
-      ddl-auto: update  # erzeugt Tabellen automatisch, kann bei produktiv auch "validate" sein
+      ddl-auto: validate  # erzeugt Tabellen automatisch, kann bei produktiv auch "validate" sein
+    properties:
+      temp:
+        use_jdbc_metadata_defaults: false
+        provider_disables_autocommit: true
     show-sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect

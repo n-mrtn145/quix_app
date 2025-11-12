@@ -10,7 +10,7 @@ spring:
         format_sql: true
 supabase:
   username: postgres
-  url: https://jscsxnjpkpsbvtdxihyn.supabase.co
-  service-role-key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpzY3N4bmpwa3BzYnZ0ZHhpaHluIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MjkyNzY5NiwiZXhwIjoyMDc4NTAzNjk2fQ.ikBMwRVWt2JRNp-75adq8fCE9WfXSi-56W8A61NuG-o
-  jwt-secret: Oy/DpzRuzKNd6h1wvZbUCPU8owaLOyccjRQIEbMdhM7ukEycgt0C56bDC2nskGdyXidYKwqOLWXsoTx0V62fVw==
+  url: ${SUPABASE_URL}
+  service-role-key: ${SUPABASE_SERVICE_ROLE_KEY}
+  jwt-secret: ${SUPABASE_JWT_TOKEN}
 

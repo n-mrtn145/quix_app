@@ -15,7 +15,7 @@ public class SecurityService {
     }
 
     public User getUserById(UUID uuid) {
-        if (userExists(uuid)) {
+        if (!userExists(uuid)) {
             return null;
         } else {
             return repository.getUserInfoById(uuid);

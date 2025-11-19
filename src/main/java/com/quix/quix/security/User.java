@@ -18,9 +18,12 @@ public class User {
     private UUID id;
     @JsonProperty("email")
     private String email;
-    @JsonProperty("role")
-    private String role;
+    @JsonProperty("display-name")
+    private String username;
     @JsonProperty("createdAt")
     private Instant createdAt;
+    @JsonProperty("password")
+    private String password;
+
 
 }

@@ -59,7 +59,7 @@ public class MatchService {
         match.setPlayers(matchPlayers);
         match.setCards(cards);
 
-        return matchRepository.save(match); // ✅ jetzt geht’s sauber durch
+        return matchRepository.save(match);
     }
 
 

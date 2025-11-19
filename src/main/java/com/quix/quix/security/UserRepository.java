@@ -1,5 +1,6 @@
 package com.quix.quix.security;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -87,5 +88,29 @@ public class UserRepository {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public User registerUser(UserDto user) {
+
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+        String json = mapper.writeValueAsString(user);
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(supabaseUrl + "/auth/v1/signup/"))
+                    .header("apikey", supabaseServiceKey)
+                    .header("Authorization", "Bearer " + supabaseServiceKey)
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            JsonNode node = objectMapper.readTree(response.body());
+            return mapper.readValue(response.body(), User.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("Could not map to Json: " + e);
+        } catch (Exception e) {
+            return  null;
+        }
+
+
     }
 }

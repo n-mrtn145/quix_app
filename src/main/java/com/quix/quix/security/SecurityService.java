@@ -22,4 +22,10 @@ public class SecurityService {
         }
     }
 
+
+    public User registerUser(UserDto user) {
+        return repository.registerUser(user);
+    }
+
+
 }

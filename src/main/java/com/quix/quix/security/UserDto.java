@@ -10,10 +10,11 @@ import java.util.UUID;
 @Data
 public class UserDto {
 private UUID id;
-@JsonProperty("username")
-private String username;
+@JsonProperty("email")
+private String email;
 @JsonProperty("password")
 private String password;
-
+@JsonProperty("data")
+    private UserDataDto data;
 }
 

@@ -2,6 +2,7 @@ package com.quix.quix.match;
 
 import com.quix.quix.security.SecurityService;
 import com.quix.quix.security.User;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,8 @@ public class MatchController {
 
     @Autowired
     private SecurityService securityService;
+
+
 
     @PostMapping("/match/start")
     private ResponseEntity<MatchEntity> startMatch(@RequestBody List<UUID> userIds) {

@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.UUID;
@@ -29,5 +30,10 @@ public class SecurityController {
     @GetMapping("/user/exists")
     public ResponseEntity<Boolean> existsUser(@RequestBody UUID uuid) {
         return ResponseEntity.ok(securityService.userExists(uuid));
+    }
+
+    @PostMapping("/user/register")
+    public ResponseEntity<User> registerUser(@RequestBody UserDto user) {
+        return ResponseEntity.ok(securityService.registerUser(user));
     }
 }

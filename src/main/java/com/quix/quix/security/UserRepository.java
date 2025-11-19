@@ -90,7 +90,7 @@ public class UserRepository {
         }
     }
 
-    public User registerUser(UserDto user) {
+    public UserDto registerUser(UserDto user) {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
@@ -104,7 +104,21 @@ public class UserRepository {
                     .build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             JsonNode node = objectMapper.readTree(response.body());
-            return mapper.readValue(response.body(), User.class);
+
+            UserDataDto userDataDto = new UserDataDto();
+            userDataDto.setCreatedAt(node.get("user").get("created_at").asText());
+            userDataDto.setDisplayName(node.get("user").get("user_metadata").get("display_name").asText());
+
+            SecDto secDto = new SecDto();
+            secDto.setJwtToken(node.get("access_token").asText());
+            secDto.setRefreshToken(node.get("refresh_token").asText());
+            UserDto userDto = new UserDto();
+            userDto.setId(UUID.fromString(node.get("user").get("id").asText()));
+            userDto.setEmail(node.get("user").get("email").asText());
+            userDto.setData(userDataDto);
+            userDto.setSec(secDto);
+            return userDto;
+
         } catch (JsonProcessingException e) {
             throw new RuntimeException("Could not map to Json: " + e);
         } catch (Exception e) {

@@ -7,7 +7,4 @@ import java.util.UUID;
 
 @Repository
 public interface MatchRepository extends JpaRepository<MatchEntity, UUID> {
-
-
-
 }

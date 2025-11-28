@@ -17,11 +17,10 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "matches")
+@Table(name = "match_entity")
 public class MatchEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     // 🔹 Match hat mehrere Spieler
@@ -30,15 +29,13 @@ public class MatchEntity {
     private List<MatchPlayer> players = new ArrayList<>();
 
     // 🔹 Match hat mehrere Karten (bleibt wie gehabt)
-    @OneToMany(mappedBy = "match", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "matchId", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<CardEntity> cards = new ArrayList<>();
+    private List<EntryEntity> entries = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private MatchStatus status;
 
     private LocalDateTime timestamp;
 
-    @Version
-    private Long version = 0L;
 }

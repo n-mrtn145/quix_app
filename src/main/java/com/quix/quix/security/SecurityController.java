@@ -1,9 +1,11 @@
 package com.quix.quix.security;
 
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,5 +38,12 @@ public class SecurityController {
     @PostMapping("/user/register")
     public ResponseEntity<UserDto> registerUser(@RequestBody UserDto user) {
         return ResponseEntity.ok(securityService.registerUser(user));
+    }
+
+    @GetMapping("/user/getId")
+    public ResponseEntity<Claims> test() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Claims claims = (Claims) auth.getDetails();
+        return ResponseEntity.ok(claims);
     }
 }

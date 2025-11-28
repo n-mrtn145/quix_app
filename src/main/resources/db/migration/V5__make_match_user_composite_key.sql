@@ -1,0 +1,4 @@
+ALTER TABLE match_user DROP COLUMN IF EXISTS id;
+
+ALTER TABLE match_user DROP CONSTRAINT IF EXISTS match_user_pkey;
+

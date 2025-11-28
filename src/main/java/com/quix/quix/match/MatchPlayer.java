@@ -10,19 +10,16 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "match_players",
+@IdClass(MatchPlayerId.class)
+@Table(name = "match_user",
         uniqueConstraints = @UniqueConstraint(columnNames = {"match_id", "user_id"}))
 public class MatchPlayer {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
-
     @Column(name = "match_id", nullable = false)
     private UUID matchId;
 
+    @Id
     @Column(name = "user_id", nullable = false)
     private UUID userId;
-
 }
 

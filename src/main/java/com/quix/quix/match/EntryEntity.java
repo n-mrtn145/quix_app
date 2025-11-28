@@ -1,12 +1,14 @@
 package com.quix.quix.match;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -20,29 +22,22 @@ public class EntryEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @ElementCollection
-    @CollectionTable(name = "entry_red", joinColumns = @JoinColumn(name = "entry_id"))
-    @Column(name = "value")
-    private List<Integer> red;
 
-    @ElementCollection
-    @CollectionTable(name = "entry_yellow", joinColumns = @JoinColumn(name = "entry_id"))
-    @Column(name = "value")
-    private List<Integer> yellow;
+    private String red;
 
-    @ElementCollection
-    @CollectionTable(name = "entry_green", joinColumns = @JoinColumn(name = "entry_id"))
-    @Column(name = "value")
-    private List<Integer> green;
 
-    @ElementCollection
-    @CollectionTable(name = "entry_blue", joinColumns = @JoinColumn(name = "entry_id"))
-    @Column(name = "value")
-    private List<Integer> blue;
+    private String yellow;
+
+
+    private String green;
+
+
+    private String blue;
 
     private Integer wrongThrow;
 
-    @Version
-    private Long version = 0L;
+    private UUID matchId;
+
+    private UUID userId;
 }
 

@@ -33,6 +33,4 @@ public class CardEntity {
     @JoinColumn(name = "entry_id", foreignKey = @ForeignKey(name = "fk_card_entry"))
     private EntryEntity entry;
 
-    @Version
-    private Long version = 0L;
 }

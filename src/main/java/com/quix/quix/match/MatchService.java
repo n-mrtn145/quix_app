@@ -34,22 +34,18 @@ public class MatchService {
         match.setStatus(MatchStatus.A);
         match.setTimestamp(LocalDateTime.now());
 
-        List<CardEntity> cards = new ArrayList<>();
+        List<EntryEntity> entries = new ArrayList<>();
 
         for (User player : players) {
             EntryEntity entry = new EntryEntity();
-            entry.setRed(List.of());
-            entry.setYellow(List.of());
-            entry.setGreen(List.of());
-            entry.setBlue(List.of());
+            entry.setRed("");
+            entry.setYellow("");
+            entry.setGreen("");
+            entry.setBlue("");
             entry.setWrongThrow(0);
-
-            CardEntity card = new CardEntity();
-            card.setUserId(player.getId());
-            card.setEntry(entry);
-            card.setMatch(match);
-
-            cards.add(card);
+            entry.setUserId(player.getId());
+            entry.setMatchId(matchId);
+            entries.add(entry);
 
             matchPlayer = new MatchPlayer();
             matchPlayer.setMatchId(matchId);
@@ -57,9 +53,13 @@ public class MatchService {
             matchPlayers.add(matchPlayer);
         }
         match.setPlayers(matchPlayers);
-        match.setCards(cards);
+        match.setEntries(entries);
 
         return matchRepository.save(match);
+    }
+
+    public MatchEntity getActiveMatchOfPlayer(UUID playerId) {
+return null;
     }
 
 

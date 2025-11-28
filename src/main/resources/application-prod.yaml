@@ -6,6 +6,14 @@ spring:
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 3
+      data-source-properties:
+        # deaktiviert Server-side prepared statements
+        useServerPrepStmts: false
+        # Prepared Statement Cache ausschalten
+        prepStmtCacheSize: 0
+        prepStmtCacheSqlLimit: 0
+        # prepareThreshold auf 0 setzen (kein serverseitiges caching)
+        prepareThreshold: 0
   jpa:
     properties:
       temp:

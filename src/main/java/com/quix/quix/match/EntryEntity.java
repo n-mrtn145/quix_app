@@ -1,9 +1,6 @@
 package com.quix.quix.match;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +16,7 @@ import java.util.UUID;
 public class EntryEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
 
@@ -36,6 +33,7 @@ public class EntryEntity {
 
     private Integer wrongThrow;
 
+    @Column(name = "match_id")
     private UUID matchId;
 
     private UUID userId;

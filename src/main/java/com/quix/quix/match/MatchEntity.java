@@ -28,9 +28,8 @@ public class MatchEntity {
     @JoinColumn(name = "match_id") // FK in MatchPlayer
     private List<MatchPlayer> players = new ArrayList<>();
 
-    // 🔹 Match hat mehrere Karten (bleibt wie gehabt)
-    @OneToMany(mappedBy = "matchId", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "match_id") // benutzt dieselbe Spalte wie EntryEntity
     private List<EntryEntity> entries = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)

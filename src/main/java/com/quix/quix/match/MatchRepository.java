@@ -14,7 +14,7 @@ public interface MatchRepository extends CrudRepository<MatchEntity, UUID> {
                     join match_user mu on mu.user_id = e.user_id
                     join match_entity m on e.match_id = m.id
                     WHERE e.user_id = :userId 
-                    AND m.status = 'Active'
+                    AND m.status = 'A'
             """, nativeQuery = true)
-    public EntryEntity getAcitveEntryEntitybyUserId(UUID userId);
+    EntryEntity getAcitveEntryEntitybyUserId(UUID userId);
 }
